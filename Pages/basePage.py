@@ -1,5 +1,12 @@
 from pathlib import Path
 from playwright.sync_api import Page,Locator
+from utilities.constants import (
+    SCREENSHOT_CLICK_ERROR,
+    SCREENSHOT_DIRECTORY,
+    SCREENSHOT_FILL_ERROR,
+    SCREENSHOT_CHECK_ERROR,
+    SCREENSHOT_SELECT_OPTION_ERROR,
+)
 
 class BasePage:
     def __init__(self,page:Page):
@@ -9,7 +16,7 @@ class BasePage:
         locator.wait_for(state='visible')
     
     def take_screenshot(self, file_name: str) -> None:
-        screenshot_dir = Path("screenshots")
+        screenshot_dir = Path(SCREENSHOT_DIRECTORY)
         screenshot_dir.mkdir(exist_ok=True)
 
         self.page.screenshot(
@@ -25,7 +32,7 @@ class BasePage:
             locator.click()
 
         except Exception:
-            self.take_screenshot("click_error.png")
+            self.take_screenshot(SCREENSHOT_CLICK_ERROR)
             raise
 
     def fill(self, locator: Locator, value: str) -> None:
@@ -35,7 +42,7 @@ class BasePage:
             locator.fill(value)
 
         except Exception:
-            self.take_screenshot("fill_error.png")
+            self.take_screenshot(SCREENSHOT_FILL_ERROR)
             raise
 
     def check(self, locator: Locator) -> None:
@@ -46,7 +53,7 @@ class BasePage:
             locator.check()
 
         except Exception:
-            self.take_screenshot("check_error.png")
+            self.take_screenshot(SCREENSHOT_CHECK_ERROR)
             raise
 
     def select_option(self, locator: Locator, value: str) -> None:
@@ -56,7 +63,7 @@ class BasePage:
             locator.select_option(value=value)
 
         except Exception:
-            self.take_screenshot("select_option_error.png")
+            self.take_screenshot(SCREENSHOT_SELECT_OPTION_ERROR)
             raise
 
     def get_text(self,locator:Locator) -> str:

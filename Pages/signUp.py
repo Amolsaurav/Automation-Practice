@@ -1,12 +1,13 @@
 from Pages.basePage import BasePage
 from Pages.register import Register
+from utilities.constants import TEXT_EMAIL_ADDRESS, TEXT_NAME, TEXT_SIGNUP_LOGIN
 class SignUp(BasePage):
     def __init__(self,page):
         super().__init__(page)
-        self.signup_link = self.page.get_by_role('link',name='Signup / Login')
+        self.signup_link = self.page.get_by_role('link',name=TEXT_SIGNUP_LOGIN)
         self.signup_Form = self.page.locator('.signup-form')
-        self.username = self.signup_Form.get_by_role('textbox',name='Name')
-        self.email = self.signup_Form.get_by_role('textbox', name='Email Address')
+        self.username = self.signup_Form.get_by_role('textbox',name=TEXT_NAME)
+        self.email = self.signup_Form.get_by_role('textbox', name=TEXT_EMAIL_ADDRESS)
         self.submit = self.signup_Form.get_by_role('button')
     def open_signup(self):
         self.click(self.signup_link)

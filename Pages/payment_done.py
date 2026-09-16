@@ -1,12 +1,13 @@
 from Pages.basePage import BasePage
 from playwright.sync_api import Page
+from utilities.constants import TEXT_CONTINUE, TEXT_DOWNLOAD_INVOICE
 
 
 class PaymentDone(BasePage):
     def __init__(self,page:Page):
         super().__init__(page)
-        self.download_invoice_btn = self.page.get_by_role('link',name='Download Invoice')
-        self.continue_btn = self.page.get_by_role('link',name = 'Continue')
+        self.download_invoice_btn = self.page.get_by_role('link',name=TEXT_DOWNLOAD_INVOICE)
+        self.continue_btn = self.page.get_by_role('link',name = TEXT_CONTINUE)
     
     def download_invoice(self):
         self.click(self.download_invoice_btn)

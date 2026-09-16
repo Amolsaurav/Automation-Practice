@@ -1,5 +1,6 @@
 from playwright.sync_api import Page
 from Pages.basePage import BasePage
+from utilities.constants import TEXT_CREATE_ACCOUNT
 
 
 class Register(BasePage):
@@ -22,7 +23,7 @@ class Register(BasePage):
         self.zipcode = self.registerForm.locator('#zipcode')
         self.mobile = self.registerForm.locator('#mobile_number')
         
-        self.createButton = self.registerForm.get_by_role('button',name='Create Account')
+        self.createButton = self.registerForm.get_by_role('button',name=TEXT_CREATE_ACCOUNT)
     
     def fillForm(self,registrationData):
         self.check(self.gender)

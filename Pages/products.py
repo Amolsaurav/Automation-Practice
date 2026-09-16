@@ -1,6 +1,7 @@
 from playwright.sync_api import Page, Locator
 from Pages.basePage import BasePage
 from Pages.cart import Cart
+from utilities.constants import TEXT_ADD_TO_CART, TEXT_CONTINUE_SHOPPING, TEXT_POLO, TEXT_VIEW_CART
 
 
 class Products(BasePage):
@@ -8,17 +9,17 @@ class Products(BasePage):
     def __init__(self, page: Page):
         super().__init__(page)
 
-        self.polo_category = self.page.get_by_role("link",name="POLO")
+        self.polo_category = self.page.get_by_role("link",name=TEXT_POLO)
 
-        self.continue_shopping_button = self.page.get_by_role("button",name="Continue Shopping")
+        self.continue_shopping_button = self.page.get_by_role("button",name=TEXT_CONTINUE_SHOPPING)
 
-        self.view_cart_button = self.page.get_by_role("link",name="View Cart")
+        self.view_cart_button = self.page.get_by_role("link",name=TEXT_VIEW_CART)
 
     def get_product(self, product_name: str) -> Locator:
         return self.page.locator(".productinfo",has_text=product_name)
 
     def get_add_to_cart_button(self, product: Locator) -> Locator:
-        return product.get_by_role("link",name="Add to cart")
+        return product.get_by_role("link",name=TEXT_ADD_TO_CART)
 
     def open_category(self):
         self.click(self.polo_category)
