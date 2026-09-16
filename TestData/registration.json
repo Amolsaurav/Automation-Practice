@@ -1,0 +1,60 @@
+{
+    "valid_registration": [
+        {
+            "id": "VR002",
+            "username": "alex2026",
+            "email": "alex2026@example.com",
+            "password": "Alex@2026",
+            "day": "8",
+            "month": "March",
+            "year": "1999",
+            "first_name": "Alex",
+            "last_name": "Johnson",
+            "company": "TechSoft",
+            "address": "Sector 62, Noida",
+            "country": "India",
+            "state": "Uttar Pradesh",
+            "city": "Noida",
+            "zipcode": "201309",
+            "mobile": "9876543211"
+        },
+        {
+            "id": "VR003",
+            "username": "sophia89",
+            "email": "sophia89@example.com",
+            "password": "Sophia@89",
+            "day": "21",
+            "month": "November",
+            "year": "2001",
+            "first_name": "Sophia",
+            "last_name": "Williams",
+            "company": "Innovate Labs",
+            "address": "Whitefield",
+            "country": "India",
+            "state": "Karnataka",
+            "city": "Bengaluru",
+            "zipcode": "560066",
+            "mobile": "9123456789"
+        }
+    ],
+    "invalid_registration": [
+        {
+            "id": "IR001",
+            "username": "",
+            "email": "python@example.com",
+            "expected_error": "Name is required"
+        },
+        {
+            "id": "IR002",
+            "username": "python",
+            "email": "invalidemail",
+            "expected_error": "Invalid email"
+        },
+        {
+            "id": "IR003",
+            "username": "python",
+            "email": "python3145@axeml.com",
+            "expected_error": "Email Address already exist!"
+        }
+    ]
+}
