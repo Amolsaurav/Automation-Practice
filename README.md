@@ -32,4 +32,3 @@ The HTML report is generated at `report.html`.
 - `TestData/` - JSON test data
 - `utilities/constants.py` - Shared configuration and test values
 - `utilities/data_loader.py` - JSON data loader
-# Automation-Practice
