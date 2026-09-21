@@ -1,0 +1,4 @@
+pytest-html
+google-genai
+pytest-playwright
+requests
