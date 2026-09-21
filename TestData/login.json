@@ -1,0 +1,28 @@
+{
+    "valid_login": [
+        {
+            "id": "VL001",
+            "email": "python3145@axeml.com"
+        }
+    ],
+    "invalid_login": [
+        {
+            "id": "IL001",
+            "email": "wrong@example.com",
+            "expected_error": "Your email or password is incorrect!",
+            "error_type": "application"
+        },
+        {
+            "id": "IL002",
+            "email": "python@example.com",
+            "expected_error": "Your email or password is incorrect!",
+            "error_type": "application"
+        },
+        {
+            "id": "IL003",
+            "email": "",
+            "expected_error": "Please fill out this field.",
+            "error_type": "browser_validation"
+        }
+    ]
+}
