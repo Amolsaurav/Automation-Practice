@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="37" time="285.614" timestamp="2026-09-21T13:52:29.591107+05:30" hostname="HP"><testcase classname="generated.tests.api.test_api_suite" name="test_get_all_products" time="1.994" /><testcase classname="generated.tests.api.test_api_suite" name="test_post_all_products" time="0.346" /><testcase classname="generated.tests.api.test_api_suite" name="test_get_all_brands" time="0.361" /><testcase classname="generated.tests.api.test_api_suite" name="test_put_all_brands" time="0.391" /><testcase classname="generated.tests.api.test_api_suite" name="test_post_search_product" time="0.455" /><testcase classname="generated.tests.api.test_api_suite" name="test_post_search_product_missing_param" time="0.387" /><testcase classname="generated.tests.api.test_api_suite" name="test_post_verify_login_valid_details" time="0.693" /><testcase classname="generated.tests.api.test_api_suite" name="test_post_verify_login_missing_email" time="0.425" /><testcase classname="generated.tests.api.test_api_suite" name="test_delete_verify_login" time="0.345" /><testcase classname="generated.tests.api.test_api_suite" name="test_post_verify_login_invalid_details" time="0.458" /><testcase classname="generated.tests.api.test_api_suite" name="test_create_and_delete_user_account" time="0.944" /><testcase classname="generated.tests.api.test_api_suite" name="test_update_user_account" time="0.839" /><testcase classname="generated.tests.api.test_api_suite" name="test_get_user_detail_by_email" time="0.745" /><testcase classname="generated.tests.ui.test_auth" name="test_register_user_valid[chromium]" time="7.768" /><testcase classname="generated.tests.ui.test_auth" name="test_register_user_invalid_and_missing_data[chromium]" time="8.222" /><testcase classname="generated.tests.ui.test_auth" name="test_login_user_valid[chromium]" time="7.879" /><testcase classname="generated.tests.ui.test_auth" name="test_login_user_invalid[chromium]" time="4.447" /><testcase classname="generated.tests.ui.test_auth" name="test_logout_user[chromium]" time="5.561" /><testcase classname="generated.tests.ui.test_scenarios_1" name="test_contact_us_form[chromium]" time="3.135" /><testcase classname="generated.tests.ui.test_scenarios_1" name="test_test_cases_page[chromium]" time="2.896" /><testcase classname="generated.tests.ui.test_scenarios_1" name="test_products_and_product_detail[chromium]" time="3.952" /><testcase classname="generated.tests.ui.test_scenarios_1" name="test_search_product[chromium]" time="17.420"><failure message="playwright._impl._errors.Error: Page.goto: net::ERR_CONNECTION_CLOSED at https://automationexercise.com/&#10;Call log:&#10;  - navigating to &quot;https://automationexercise.com/&quot;, waiting until &quot;domcontentloaded&quot;">page = &lt;Page url='about:blank'&gt;, home_page = &lt;generated.pages.home_page.HomePage object at 0x0000022FAE599450&gt;
+products_page = &lt;generated.pages.products_page.ProductsPage object at 0x0000022FAECD8550&gt;
+
+    def test_search_product(page, home_page, products_page):
+&gt;       home_page.navigate_to()
+
+generated\tests\ui\test_scenarios_1.py:85: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+generated\pages\home_page.py:5: in navigate_to
+    self.navigate("https://automationexercise.com")
+generated\pages\base_page.py:12: in navigate
+    self.page.goto(url, wait_until="domcontentloaded", timeout=30000)
+generated\tests\ui\test_scenarios_1.py:27: in custom_goto
+    return original_goto(url, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+generated\tests\ui\test_scenarios_2.py:22: in _custom_goto
+    return _original_goto(self, url, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\sync_api\_generated.py:9770: in goto
+    self._sync(
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_page.py:560: in goto
+    return await self._main_frame.goto(**locals_to_params(locals()))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_frame.py:156: in goto
+    await self._channel.send(
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_connection.py:69: in send
+    return await self._connection.wrap_api_call(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;playwright._impl._connection.Connection object at 0x0000022FADB778C0&gt;, cb = &lt;function Channel.send.&lt;locals&gt;.&lt;lambda&gt; at 0x0000022FAF314360&gt;, is_internal = False
+title = None
+
+    async def wrap_api_call(
+        self, cb: Callable[[], Any], is_internal: bool = False, title: str = None
+    ) -&gt; Any:
+        if self._api_zone.get():
+            return await cb()
+        task = asyncio.current_task(self._loop)
+        st: List[inspect.FrameInfo] = getattr(
+            task, "__pw_stack__", None
+        ) or inspect.stack(0)
+    
+        parsed_st = _extract_stack_trace_information_from_stack(st, is_internal, title)
+        self._api_zone.set(parsed_st)
+        try:
+            return await cb()
+        except Exception as error:
+&gt;           raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+E           playwright._impl._errors.Error: Page.goto: net::ERR_CONNECTION_CLOSED at https://automationexercise.com/
+E           Call log:
+E             - navigating to "https://automationexercise.com/", waiting until "domcontentloaded"
+
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_connection.py:563: Error</failure></testcase><testcase classname="generated.tests.ui.test_scenarios_1" name="test_subscription[chromium]" time="13.215" /><testcase classname="generated.tests.ui.test_scenarios_1" name="test_cart_operations[chromium]" time="8.545" /><testcase classname="generated.tests.ui.test_scenarios_2" name="test_register_while_checkout[chromium]" time="11.027" /><testcase classname="generated.tests.ui.test_scenarios_2" name="test_register_before_checkout[chromium]" time="12.098" /><testcase classname="generated.tests.ui.test_scenarios_2" name="test_login_before_checkout[chromium]" time="15.181" /><testcase classname="generated.tests.ui.test_scenarios_2" name="test_invalid_payment[chromium]" time="8.732" /><testcase classname="generated.tests.ui.test_scenarios_2" name="test_invalid_checkout_state[chromium]" time="18.281" /><testcase classname="generated.tests.ui.test_scenarios_2" name="test_remove_products_from_cart[chromium]" time="9.314" /><testcase classname="generated.tests.ui.test_scenarios_2" name="test_categories_and_brands[chromium]" time="4.224" /><testcase classname="generated.tests.ui.test_scenarios_2" name="test_search_login_and_cart_persistence[chromium]" time="14.784" /><testcase classname="generated.tests.ui.test_scenarios_2" name="test_product_review[chromium]" time="5.270" /><testcase classname="generated.tests.ui.test_scenarios_2" name="test_recommended_items[chromium]" time="36.155" /><testcase classname="generated.tests.ui.test_scenarios_2" name="test_checkout_address_details[chromium]" time="19.179" /><testcase classname="generated.tests.ui.test_scenarios_2" name="test_download_invoice[chromium]" time="21.848" /><testcase classname="generated.tests.ui.test_scenarios_2" name="test_scroll_behavior[chromium]" time="6.254" /></testsuite></testsuites>
