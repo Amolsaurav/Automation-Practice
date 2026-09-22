@@ -1,11 +1,15 @@
-# Test Execution Summary
+### Test Execution Summary
 
 - **Total Tests:** 37
-- **Passed:** 35
-- **Failed:** 2
+- **Passed:** 34
+- **Failed:** 3
 - **Skipped:** 0
-- **Duration:** 263.05 seconds
-- **Timestamp:** 2026-09-21T13:44:02.810451+05:30
+- **Total Execution Time:** 507.65s (~8m 27s)
 
-## Overview
-The test execution consisted of 13 API tests and 24 UI tests (Playwright with Chromium). API tests achieved a 100% pass rate, while 2 UI scenario tests failed due to Playwright element interaction timeouts.
+### Overview
+The test suite includes both API and UI test cases. API tests executed quickly and passed without failures. All 3 failures occurred within the UI test execution suite (`chromium` browser context).
+
+### Key Failures
+1. **Contact Us Form:** Expected success message was empty after submitting the form.
+2. **Product Search:** Searching for a non-existent product keyword (`no_such_product_999`) unexpectedly returned 13 product cards instead of 0.
+3. **Recommended Items:** Clicking 'Add to Cart' on a recommended item on the home page did not successfully increment or populate the cart (cart count remained 0).
