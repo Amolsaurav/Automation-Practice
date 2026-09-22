@@ -1,53 +1,79 @@
-<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="37" time="285.614" timestamp="2026-09-21T13:52:29.591107+05:30" hostname="HP"><testcase classname="generated.tests.api.test_api_suite" name="test_get_all_products" time="1.994" /><testcase classname="generated.tests.api.test_api_suite" name="test_post_all_products" time="0.346" /><testcase classname="generated.tests.api.test_api_suite" name="test_get_all_brands" time="0.361" /><testcase classname="generated.tests.api.test_api_suite" name="test_put_all_brands" time="0.391" /><testcase classname="generated.tests.api.test_api_suite" name="test_post_search_product" time="0.455" /><testcase classname="generated.tests.api.test_api_suite" name="test_post_search_product_missing_param" time="0.387" /><testcase classname="generated.tests.api.test_api_suite" name="test_post_verify_login_valid_details" time="0.693" /><testcase classname="generated.tests.api.test_api_suite" name="test_post_verify_login_missing_email" time="0.425" /><testcase classname="generated.tests.api.test_api_suite" name="test_delete_verify_login" time="0.345" /><testcase classname="generated.tests.api.test_api_suite" name="test_post_verify_login_invalid_details" time="0.458" /><testcase classname="generated.tests.api.test_api_suite" name="test_create_and_delete_user_account" time="0.944" /><testcase classname="generated.tests.api.test_api_suite" name="test_update_user_account" time="0.839" /><testcase classname="generated.tests.api.test_api_suite" name="test_get_user_detail_by_email" time="0.745" /><testcase classname="generated.tests.ui.test_auth" name="test_register_user_valid[chromium]" time="7.768" /><testcase classname="generated.tests.ui.test_auth" name="test_register_user_invalid_and_missing_data[chromium]" time="8.222" /><testcase classname="generated.tests.ui.test_auth" name="test_login_user_valid[chromium]" time="7.879" /><testcase classname="generated.tests.ui.test_auth" name="test_login_user_invalid[chromium]" time="4.447" /><testcase classname="generated.tests.ui.test_auth" name="test_logout_user[chromium]" time="5.561" /><testcase classname="generated.tests.ui.test_scenarios_1" name="test_contact_us_form[chromium]" time="3.135" /><testcase classname="generated.tests.ui.test_scenarios_1" name="test_test_cases_page[chromium]" time="2.896" /><testcase classname="generated.tests.ui.test_scenarios_1" name="test_products_and_product_detail[chromium]" time="3.952" /><testcase classname="generated.tests.ui.test_scenarios_1" name="test_search_product[chromium]" time="17.420"><failure message="playwright._impl._errors.Error: Page.goto: net::ERR_CONNECTION_CLOSED at https://automationexercise.com/&#10;Call log:&#10;  - navigating to &quot;https://automationexercise.com/&quot;, waiting until &quot;domcontentloaded&quot;">page = &lt;Page url='about:blank'&gt;, home_page = &lt;generated.pages.home_page.HomePage object at 0x0000022FAE599450&gt;
-products_page = &lt;generated.pages.products_page.ProductsPage object at 0x0000022FAECD8550&gt;
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="3" skipped="0" tests="37" time="316.219" timestamp="2026-09-22T15:04:20.615374+05:30" hostname="HP"><testcase classname="generated.tests.api.test_api_suite" name="test_get_all_products" time="3.154" /><testcase classname="generated.tests.api.test_api_suite" name="test_post_all_products" time="0.380" /><testcase classname="generated.tests.api.test_api_suite" name="test_get_all_brands" time="0.454" /><testcase classname="generated.tests.api.test_api_suite" name="test_put_all_brands" time="0.607" /><testcase classname="generated.tests.api.test_api_suite" name="test_post_search_product" time="1.322" /><testcase classname="generated.tests.api.test_api_suite" name="test_post_search_product_missing_param" time="0.878" /><testcase classname="generated.tests.api.test_api_suite" name="test_post_verify_login_valid_details" time="1.529" /><testcase classname="generated.tests.api.test_api_suite" name="test_post_verify_login_missing_email" time="0.519" /><testcase classname="generated.tests.api.test_api_suite" name="test_delete_verify_login" time="0.383" /><testcase classname="generated.tests.api.test_api_suite" name="test_post_verify_login_invalid_details" time="0.517" /><testcase classname="generated.tests.api.test_api_suite" name="test_create_and_delete_user_account" time="1.681" /><testcase classname="generated.tests.api.test_api_suite" name="test_update_user_account" time="1.700" /><testcase classname="generated.tests.api.test_api_suite" name="test_get_user_detail_by_email" time="0.844" /><testcase classname="generated.tests.ui.test_auth" name="test_register_user_valid[chromium]" time="9.827" /><testcase classname="generated.tests.ui.test_auth" name="test_register_user_invalid_and_missing_data[chromium]" time="26.320" /><testcase classname="generated.tests.ui.test_auth" name="test_login_user_valid[chromium]" time="8.924" /><testcase classname="generated.tests.ui.test_auth" name="test_login_user_invalid[chromium]" time="5.416" /><testcase classname="generated.tests.ui.test_auth" name="test_logout_user[chromium]" time="7.413" /><testcase classname="generated.tests.ui.test_scenarios_1" name="test_contact_us_form[chromium]" time="4.246" /><testcase classname="generated.tests.ui.test_scenarios_1" name="test_test_cases_page[chromium]" time="2.993" /><testcase classname="generated.tests.ui.test_scenarios_1" name="test_products_and_product_detail[chromium]" time="4.064" /><testcase classname="generated.tests.ui.test_scenarios_1" name="test_search_product[chromium]" time="13.133"><failure message="assert 0 &gt; 0&#10; +  where 0 = get_product_cards_count()&#10; +    where get_product_cards_count = &lt;generated.pages.products_page.ProductsPage object at 0x000002025996E0D0&gt;.get_product_cards_count">page = &lt;Page url='https://automationexercise.com/products?search=shirt'&gt;
+home_page = &lt;generated.pages.home_page.HomePage object at 0x0000020259B49750&gt;
+products_page = &lt;generated.pages.products_page.ProductsPage object at 0x000002025996E0D0&gt;
 
     def test_search_product(page, home_page, products_page):
-&gt;       home_page.navigate_to()
+        home_page.navigate_to()
+        home_page.click_products()
+        products_page.search_product("shirt")
+&gt;       assert products_page.get_product_cards_count() &gt; 0
+E       assert 0 &gt; 0
+E        +  where 0 = get_product_cards_count()
+E        +    where get_product_cards_count = &lt;generated.pages.products_page.ProductsPage object at 0x000002025996E0D0&gt;.get_product_cards_count
 
-generated\tests\ui\test_scenarios_1.py:85: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-generated\pages\home_page.py:5: in navigate_to
-    self.navigate("https://automationexercise.com")
-generated\pages\base_page.py:12: in navigate
-    self.page.goto(url, wait_until="domcontentloaded", timeout=30000)
-generated\tests\ui\test_scenarios_1.py:27: in custom_goto
-    return original_goto(url, *args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-generated\tests\ui\test_scenarios_2.py:22: in _custom_goto
-    return _original_goto(self, url, *args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\sync_api\_generated.py:9770: in goto
-    self._sync(
-..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_page.py:560: in goto
-    return await self._main_frame.goto(**locals_to_params(locals()))
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_frame.py:156: in goto
-    await self._channel.send(
-..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_connection.py:69: in send
-    return await self._connection.wrap_api_call(
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+generated\tests\ui\test_scenarios_1.py:88: AssertionError</failure></testcase><testcase classname="generated.tests.ui.test_scenarios_1" name="test_subscription[chromium]" time="5.134" /><testcase classname="generated.tests.ui.test_scenarios_1" name="test_cart_operations[chromium]" time="18.127" /><testcase classname="generated.tests.ui.test_scenarios_2" name="test_register_while_checkout[chromium]" time="17.761" /><testcase classname="generated.tests.ui.test_scenarios_2" name="test_register_before_checkout[chromium]" time="12.110" /><testcase classname="generated.tests.ui.test_scenarios_2" name="test_login_before_checkout[chromium]" time="17.818" /><testcase classname="generated.tests.ui.test_scenarios_2" name="test_invalid_payment[chromium]" time="12.274" /><testcase classname="generated.tests.ui.test_scenarios_2" name="test_invalid_checkout_state[chromium]" time="8.218"><failure message="AssertionError: assert (False or False)&#10; +  where False = is_visible()&#10; +    where is_visible = &lt;Locator frame=&lt;Frame name= url='https://automationexercise.com/view_cart'&gt; selector='#checkoutModal'&gt;.is_visible&#10; +      where &lt;Locator frame=&lt;Frame name= url='https://automationexercise.com/view_cart'&gt; selector='#checkoutModal'&gt; = locator('#checkoutModal')&#10; +        where locator = &lt;Page url='https://automationexercise.com/view_cart'&gt;.locator&#10; +          where &lt;Page url='https://automationexercise.com/view_cart'&gt; = &lt;generated.pages.cart_page.CartPage object at 0x0000020259B797B0&gt;.page&#10; +  and   False = is_visible()&#10; +    where is_visible = &lt;Locator frame=&lt;Frame name= url='https://automationexercise.com/view_cart'&gt; selector='.modal-checkout'&gt;.is_visible&#10; +      where &lt;Locator frame=&lt;Frame name= url='https://automationexercise.com/view_cart'&gt; selector='.modal-checkout'&gt; = locator('.modal-checkout')&#10; +        where locator = &lt;Page url='https://automationexercise.com/view_cart'&gt;.locator&#10; +          where &lt;Page url='https://automationexercise.com/view_cart'&gt; = &lt;generated.pages.cart_page.CartPage object at 0x0000020259B797B0&gt;.page">page = &lt;Page url='https://automationexercise.com/view_cart'&gt;, home_page = &lt;generated.pages.home_page.HomePage object at 0x000002025A337B90&gt;
+products_page = &lt;generated.pages.products_page.ProductsPage object at 0x000002025AF6A690&gt;
+cart_page = &lt;generated.pages.cart_page.CartPage object at 0x0000020259B797B0&gt;
 
-self = &lt;playwright._impl._connection.Connection object at 0x0000022FADB778C0&gt;, cb = &lt;function Channel.send.&lt;locals&gt;.&lt;lambda&gt; at 0x0000022FAF314360&gt;, is_internal = False
-title = None
-
-    async def wrap_api_call(
-        self, cb: Callable[[], Any], is_internal: bool = False, title: str = None
-    ) -&gt; Any:
-        if self._api_zone.get():
-            return await cb()
-        task = asyncio.current_task(self._loop)
-        st: List[inspect.FrameInfo] = getattr(
-            task, "__pw_stack__", None
-        ) or inspect.stack(0)
+    def test_invalid_checkout_state(page, home_page, products_page, cart_page):
+        home_page.navigate_to()
+        home_page.click_products()
+        products_page.add_first_product_to_cart()
+        products_page.click_view_cart_from_modal()
     
-        parsed_st = _extract_stack_trace_information_from_stack(st, is_internal, title)
-        self._api_zone.set(parsed_st)
+        cart_page.click_proceed_to_checkout()
         try:
-            return await cb()
-        except Exception as error:
-&gt;           raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
-E           playwright._impl._errors.Error: Page.goto: net::ERR_CONNECTION_CLOSED at https://automationexercise.com/
-E           Call log:
-E             - navigating to "https://automationexercise.com/", waiting until "domcontentloaded"
+            cart_page.page.locator("#checkoutModal, .modal-checkout").wait_for(state="visible", timeout=3000)
+        except Exception:
+            pass
+&gt;       assert cart_page.page.locator("#checkoutModal").is_visible() or cart_page.page.locator(".modal-checkout").is_visible()
+E       AssertionError: assert (False or False)
+E        +  where False = is_visible()
+E        +    where is_visible = &lt;Locator frame=&lt;Frame name= url='https://automationexercise.com/view_cart'&gt; selector='#checkoutModal'&gt;.is_visible
+E        +      where &lt;Locator frame=&lt;Frame name= url='https://automationexercise.com/view_cart'&gt; selector='#checkoutModal'&gt; = locator('#checkoutModal')
+E        +        where locator = &lt;Page url='https://automationexercise.com/view_cart'&gt;.locator
+E        +          where &lt;Page url='https://automationexercise.com/view_cart'&gt; = &lt;generated.pages.cart_page.CartPage object at 0x0000020259B797B0&gt;.page
+E        +  and   False = is_visible()
+E        +    where is_visible = &lt;Locator frame=&lt;Frame name= url='https://automationexercise.com/view_cart'&gt; selector='.modal-checkout'&gt;.is_visible
+E        +      where &lt;Locator frame=&lt;Frame name= url='https://automationexercise.com/view_cart'&gt; selector='.modal-checkout'&gt; = locator('.modal-checkout')
+E        +        where locator = &lt;Page url='https://automationexercise.com/view_cart'&gt;.locator
+E        +          where &lt;Page url='https://automationexercise.com/view_cart'&gt; = &lt;generated.pages.cart_page.CartPage object at 0x0000020259B797B0&gt;.page
 
-..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_connection.py:563: Error</failure></testcase><testcase classname="generated.tests.ui.test_scenarios_1" name="test_subscription[chromium]" time="13.215" /><testcase classname="generated.tests.ui.test_scenarios_1" name="test_cart_operations[chromium]" time="8.545" /><testcase classname="generated.tests.ui.test_scenarios_2" name="test_register_while_checkout[chromium]" time="11.027" /><testcase classname="generated.tests.ui.test_scenarios_2" name="test_register_before_checkout[chromium]" time="12.098" /><testcase classname="generated.tests.ui.test_scenarios_2" name="test_login_before_checkout[chromium]" time="15.181" /><testcase classname="generated.tests.ui.test_scenarios_2" name="test_invalid_payment[chromium]" time="8.732" /><testcase classname="generated.tests.ui.test_scenarios_2" name="test_invalid_checkout_state[chromium]" time="18.281" /><testcase classname="generated.tests.ui.test_scenarios_2" name="test_remove_products_from_cart[chromium]" time="9.314" /><testcase classname="generated.tests.ui.test_scenarios_2" name="test_categories_and_brands[chromium]" time="4.224" /><testcase classname="generated.tests.ui.test_scenarios_2" name="test_search_login_and_cart_persistence[chromium]" time="14.784" /><testcase classname="generated.tests.ui.test_scenarios_2" name="test_product_review[chromium]" time="5.270" /><testcase classname="generated.tests.ui.test_scenarios_2" name="test_recommended_items[chromium]" time="36.155" /><testcase classname="generated.tests.ui.test_scenarios_2" name="test_checkout_address_details[chromium]" time="19.179" /><testcase classname="generated.tests.ui.test_scenarios_2" name="test_download_invoice[chromium]" time="21.848" /><testcase classname="generated.tests.ui.test_scenarios_2" name="test_scroll_behavior[chromium]" time="6.254" /></testsuite></testsuites>
+generated\tests\ui\test_scenarios_2.py:905: AssertionError</failure></testcase><testcase classname="generated.tests.ui.test_scenarios_2" name="test_remove_products_from_cart[chromium]" time="11.002" /><testcase classname="generated.tests.ui.test_scenarios_2" name="test_categories_and_brands[chromium]" time="6.197" /><testcase classname="generated.tests.ui.test_scenarios_2" name="test_search_login_and_cart_persistence[chromium]" time="17.178"><failure message="assert 0 == 1&#10; +  where 0 = get_cart_items_count()&#10; +    where get_cart_items_count = &lt;generated.pages.cart_page.CartPage object at 0x000002025AD30D50&gt;.get_cart_items_count">page = &lt;Page url='https://automationexercise.com/view_cart'&gt;, home_page = &lt;generated.pages.home_page.HomePage object at 0x00000202599554F0&gt;
+products_page = &lt;generated.pages.products_page.ProductsPage object at 0x000002025AC177A0&gt;
+cart_page = &lt;generated.pages.cart_page.CartPage object at 0x000002025AD30D50&gt;
+signup_login_page = &lt;generated.pages.signup_login_page.SignupLoginPage object at 0x000002025AD30950&gt;
+register_page = &lt;generated.pages.register_page.RegisterPage object at 0x000002025AD32E50&gt;
+account_created_page = &lt;generated.pages.account_created_page.AccountCreatedPage object at 0x000002025AD31D50&gt;
+
+    def test_search_login_and_cart_persistence(page, home_page, products_page, cart_page, signup_login_page, register_page, account_created_page):
+        email = get_unique_email()
+        name = "Persistence User"
+    
+        home_page.navigate_to()
+        home_page.click_signup_login()
+        signup_login_page.signup(name, email)
+        register_page.fill_account_details("Mr", "ValidPass123!", "10", "May", "1990")
+        register_page.fill_address_details(
+            "John", "Doe", "Test Company", "123 Main St", "Suite 100",
+            "United States", "California", "Los Angeles", "90001", "1234567890"
+        )
+        register_page.click_create_account()
+        account_created_page.click_continue()
+        home_page.click_logout()
+    
+        home_page.click_products()
+        products_page.search_product("jean")
+        products_page.add_first_product_to_cart()
+        products_page.click_continue_shopping()
+    
+        home_page.click_signup_login()
+        signup_login_page.login(email, "ValidPass123!")
+    
+        home_page.click_cart()
+&gt;       assert cart_page.get_cart_items_count() == 1
+E       assert 0 == 1
+E        +  where 0 = get_cart_items_count()
+E        +    where get_cart_items_count = &lt;generated.pages.cart_page.CartPage object at 0x000002025AD30D50&gt;.get_cart_items_count
+
+generated\tests\ui\test_scenarios_2.py:977: AssertionError</failure></testcase><testcase classname="generated.tests.ui.test_scenarios_2" name="test_product_review[chromium]" time="11.221" /><testcase classname="generated.tests.ui.test_scenarios_2" name="test_recommended_items[chromium]" time="6.351" /><testcase classname="generated.tests.ui.test_scenarios_2" name="test_checkout_address_details[chromium]" time="10.287" /><testcase classname="generated.tests.ui.test_scenarios_2" name="test_download_invoice[chromium]" time="33.510" /><testcase classname="generated.tests.ui.test_scenarios_2" name="test_scroll_behavior[chromium]" time="23.492" /></testsuite></testsuites>
