@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="3" skipped="0" tests="37" time="277.628" timestamp="2026-09-24T10:27:32.033660+05:30" hostname="HP"><testcase classname="generated.tests.api.test_api_suite" name="test_get_all_products" time="1.906" /><testcase classname="generated.tests.api.test_api_suite" name="test_post_all_products" time="0.335" /><testcase classname="generated.tests.api.test_api_suite" name="test_get_all_brands" time="0.334" /><testcase classname="generated.tests.api.test_api_suite" name="test_put_all_brands" time="0.380" /><testcase classname="generated.tests.api.test_api_suite" name="test_post_search_product" time="0.510" /><testcase classname="generated.tests.api.test_api_suite" name="test_post_search_product_missing_param" time="0.387" /><testcase classname="generated.tests.api.test_api_suite" name="test_post_verify_login_valid_details" time="0.930" /><testcase classname="generated.tests.api.test_api_suite" name="test_post_verify_login_missing_email" time="0.504" /><testcase classname="generated.tests.api.test_api_suite" name="test_delete_verify_login" time="0.325" /><testcase classname="generated.tests.api.test_api_suite" name="test_post_verify_login_invalid_details" time="0.498" /><testcase classname="generated.tests.api.test_api_suite" name="test_create_and_delete_user_account" time="0.966" /><testcase classname="generated.tests.api.test_api_suite" name="test_update_user_account" time="0.933" /><testcase classname="generated.tests.api.test_api_suite" name="test_get_user_detail_by_email" time="0.841" /><testcase classname="generated.tests.ui.test_auth" name="test_register_user_valid[chromium]" time="13.820" /><testcase classname="generated.tests.ui.test_auth" name="test_register_user_invalid_and_missing_data[chromium]" time="10.214" /><testcase classname="generated.tests.ui.test_auth" name="test_login_user_valid[chromium]" time="8.387" /><testcase classname="generated.tests.ui.test_auth" name="test_login_user_invalid[chromium]" time="4.027" /><testcase classname="generated.tests.ui.test_auth" name="test_logout_user[chromium]" time="7.263" /><testcase classname="generated.tests.ui.test_scenarios_1" name="test_contact_us_form[chromium]" time="33.184"><failure message="playwright._impl._errors.TimeoutError: Page.wait_for_selector: Timeout 30000ms exceeded.&#10;Call log:&#10;  - waiting for locator(&quot;text=submitted successfully&quot;) to be visible">page = &lt;Page url='https://automationexercise.com/contact_us'&gt;, home_page = &lt;generated.pages.home_page.HomePage object at 0x000001E0702797F0&gt;
+contact_us_page = &lt;generated.pages.contact_us_page.ContactUsPage object at 0x000001E06F544AD0&gt;
+
+    def test_contact_us_form(page, home_page, contact_us_page):
+        # Accept the browser's confirmation dialog automatically
+        page.on("dialog", lambda dialog: dialog.accept())
+    
+        home_page.navigate_to()
+        home_page.click_contact_us()
+    
+        file_path = "test_upload_file.txt"
+        with open(file_path, "w") as f:
+            f.write("This is a test upload file.")
+    
+        contact_us_page.fill_contact_form(
+            name="John Doe",
+            email="john@example.com",
+            subject="Support Inquiry",
+            message="I need support with my order.",
+            file_path=file_path
+        )
+        contact_us_page.submit()
+    
+        # Wait for the success text to appear dynamically on the page
+&gt;       page.wait_for_selector("text=submitted successfully")
+
+generated\tests\ui\test_scenarios_1.py:75: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\sync_api\_generated.py:8928: in wait_for_selector
+    self._sync(
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_page.py:427: in wait_for_selector
+    return await self._main_frame.wait_for_selector(**locals_to_params(locals()))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_frame.py:394: in wait_for_selector
+    await self._channel.send(
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_connection.py:69: in send
+    return await self._connection.wrap_api_call(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;playwright._impl._connection.Connection object at 0x000001E06F0AF620&gt;, cb = &lt;function Channel.send.&lt;locals&gt;.&lt;lambda&gt; at 0x000001E07079A5C0&gt;, is_internal = False
+title = None
+
+    async def wrap_api_call(
+        self, cb: Callable[[], Any], is_internal: bool = False, title: str = None
+    ) -&gt; Any:
+        if self._api_zone.get():
+            return await cb()
+        task = asyncio.current_task(self._loop)
+        st: List[inspect.FrameInfo] = getattr(
+            task, "__pw_stack__", None
+        ) or inspect.stack(0)
+    
+        parsed_st = _extract_stack_trace_information_from_stack(st, is_internal, title)
+        self._api_zone.set(parsed_st)
+        try:
+            return await cb()
+        except Exception as error:
+&gt;           raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+E           playwright._impl._errors.TimeoutError: Page.wait_for_selector: Timeout 30000ms exceeded.
+E           Call log:
+E             - waiting for locator("text=submitted successfully") to be visible
+
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_connection.py:563: TimeoutError</failure></testcase><testcase classname="generated.tests.ui.test_scenarios_1" name="test_test_cases_page[chromium]" time="3.223" /><testcase classname="generated.tests.ui.test_scenarios_1" name="test_products_and_product_detail[chromium]" time="3.112" /><testcase classname="generated.tests.ui.test_scenarios_1" name="test_search_product[chromium]" time="3.290"><failure message="assert 34 == 0&#10; +  where 34 = get_product_cards_count()&#10; +    where get_product_cards_count = &lt;generated.pages.products_page.ProductsPage object at 0x000001E06EF53B10&gt;.get_product_cards_count">page = &lt;Page url='https://automationexercise.com/products'&gt;, home_page = &lt;generated.pages.home_page.HomePage object at 0x000001E06F047E50&gt;
+products_page = &lt;generated.pages.products_page.ProductsPage object at 0x000001E06EF53B10&gt;
+
+    def test_search_product(page, home_page, products_page):
+        home_page.navigate_to()
+        home_page.click_products()
+        products_page.search_product("shirt")
+        assert products_page.get_product_cards_count() &gt; 0
+    
+        products_page.search_product("no_such_product_999")
+&gt;       assert products_page.get_product_cards_count() == 0
+E       assert 34 == 0
+E        +  where 34 = get_product_cards_count()
+E        +    where get_product_cards_count = &lt;generated.pages.products_page.ProductsPage object at 0x000001E06EF53B10&gt;.get_product_cards_count
+
+generated\tests\ui\test_scenarios_1.py:120: AssertionError</failure></testcase><testcase classname="generated.tests.ui.test_scenarios_1" name="test_subscription[chromium]" time="4.469" /><testcase classname="generated.tests.ui.test_scenarios_1" name="test_cart_operations[chromium]" time="8.300" /><testcase classname="generated.tests.ui.test_scenarios_2" name="test_register_while_checkout[chromium]" time="28.357" /><testcase classname="generated.tests.ui.test_scenarios_2" name="test_register_before_checkout[chromium]" time="11.849" /><testcase classname="generated.tests.ui.test_scenarios_2" name="test_login_before_checkout[chromium]" time="15.752" /><testcase classname="generated.tests.ui.test_scenarios_2" name="test_invalid_payment[chromium]" time="9.912" /><testcase classname="generated.tests.ui.test_scenarios_2" name="test_invalid_checkout_state[chromium]" time="5.965" /><testcase classname="generated.tests.ui.test_scenarios_2" name="test_remove_products_from_cart[chromium]" time="17.187"><failure message="assert 0 == 2&#10; +  where 0 = get_cart_items_count()&#10; +    where get_cart_items_count = &lt;generated.pages.cart_page.CartPage object at 0x000001E0709BF130&gt;.get_cart_items_count">page = &lt;Page url='https://automationexercise.com/products'&gt;, home_page = &lt;generated.pages.home_page.HomePage object at 0x000001E072A95550&gt;
+products_page = &lt;generated.pages.products_page.ProductsPage object at 0x000001E070880650&gt;, cart_page = &lt;generated.pages.cart_page.CartPage object at 0x000001E0709BF130&gt;
+
+    def test_remove_products_from_cart(page, home_page, products_page, cart_page):
+        home_page.navigate_to()
+        home_page.click_products()
+    
+        # Wait for products page to be fully loaded
+        try:
+            page.wait_for_selector(".features_items", timeout=5000)
+        except Exception:
+            pass
+    
+        def add_product_by_id(product_id):
+            try:
+                # Target the button inside productinfo to avoid overlay hover click problems
+                btn = page.locator(f".productinfo a[data-product-id='{product_id}']").first
+                btn.scroll_into_view_if_needed(timeout=2000)
+                try:
+                    btn.click(timeout=2000)
+                except Exception:
+                    try:
+                        btn.click(force=True, timeout=2000)
+                    except Exception:
+                        btn.evaluate("el =&gt; el.click()")
+            except Exception:
+                try:
+                    btn = page.locator(f"a[data-product-id='{product_id}']").first
+                    btn.scroll_into_view_if_needed(timeout=2000)
+                    btn.click(force=True, timeout=2000)
+                except Exception:
+                    try:
+                        page.locator(f"a[data-product-id='{product_id}']").first.evaluate("el =&gt; el.click()")
+                    except Exception:
+                        pass
+    
+            # Wait for the confirmation modal to be visible
+            try:
+                page.locator("#cartModal").wait_for(state="visible", timeout=3000)
+            except Exception:
+                pass
+    
+        def click_continue_shopping():
+            continue_btn = page.locator(".modal-confirm:visible .btn-success, #cartModal:visible .btn-success, .btn-success:has-text('Continue Shopping')").first
+            try:
+                continue_btn.wait_for(state="visible", timeout=3000)
+                try:
+                    continue_btn.click(timeout=2000)
+                except Exception:
+                    continue_btn.click(force=True, timeout=2000)
+            except Exception:
+                try:
+                    page.keyboard.press("Escape")
+                except Exception:
+                    pass
+            try:
+                page.locator("#cartModal").wait_for(state="hidden", timeout=3000)
+            except Exception:
+                pass
+    
+        # Add first product (ID 1)
+        add_product_by_id("1")
+        click_continue_shopping()
+    
+        # Add second product (ID 2)
+        add_product_by_id("2")
+    
+        # Click view cart from modal robustly
+        view_cart_btn = page.locator("#cartModal:visible a[href='/view_cart'], .modal-confirm:visible a[href='/view_cart'], a[href='/view_cart']").first
+        try:
+            view_cart_btn.wait_for(state="visible", timeout=3000)
+            try:
+                view_cart_btn.click(timeout=2000)
+            except Exception:
+                view_cart_btn.click(force=True, timeout=2000)
+        except Exception:
+            page.goto("https://automationexercise.com/view_cart")
+    
+        # Ensure cart page elements are loaded before assertion
+        try:
+            page.wait_for_selector("tr[id^='product-']", timeout=5000)
+        except Exception:
+            pass
+    
+&gt;       assert cart_page.get_cart_items_count() == 2
+E       assert 0 == 2
+E        +  where 0 = get_cart_items_count()
+E        +    where get_cart_items_count = &lt;generated.pages.cart_page.CartPage object at 0x000001E0709BF130&gt;.get_cart_items_count
+
+generated\tests\ui\test_scenarios_2.py:1025: AssertionError</failure></testcase><testcase classname="generated.tests.ui.test_scenarios_2" name="test_categories_and_brands[chromium]" time="6.860" /><testcase classname="generated.tests.ui.test_scenarios_2" name="test_search_login_and_cart_persistence[chromium]" time="13.831" /><testcase classname="generated.tests.ui.test_scenarios_2" name="test_product_review[chromium]" time="5.007" /><testcase classname="generated.tests.ui.test_scenarios_2" name="test_recommended_items[chromium]" time="6.344" /><testcase classname="generated.tests.ui.test_scenarios_2" name="test_checkout_address_details[chromium]" time="16.851" /><testcase classname="generated.tests.ui.test_scenarios_2" name="test_download_invoice[chromium]" time="24.321" /><testcase classname="generated.tests.ui.test_scenarios_2" name="test_scroll_behavior[chromium]" time="6.844" /></testsuite></testsuites>
